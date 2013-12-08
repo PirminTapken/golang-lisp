@@ -6,5 +6,8 @@ import (
 
 func Tokenize(s string) *list.List {
 	l := new(list.List)
+	l.PushBack("a")
+	l.PushBack("b")
+	l.PushBack("c")
 	return l
 }
