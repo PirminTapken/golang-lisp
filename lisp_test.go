@@ -23,6 +23,12 @@ func testEqual(a, b *list.List, t *testing.T) {
 	}
 }
 
+func printTokenList(l *list.List, t *testing.T) {
+	for e := l.Front(); e != nil; e = e.Next() {
+		t.Log(e)
+	}
+}
+
 // Test if the tokenizer correctly parses (a b c)
 func TestTokenizerWithABC(t *testing.T) {
 	example := "(a b c)"
