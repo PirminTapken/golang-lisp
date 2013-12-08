@@ -49,3 +49,15 @@ func TestTokenizerWithEmptyList(t *testing.T) {
 
 	testEqual(result, reference, t)
 }
+
+func TestTokenizerWithStrings(t *testing.T) {
+	example := `(a "b" cde "efg")`
+	result := Tokenize(example)
+	reference := list.New()
+	reference.PushBack("a")
+	reference.PushBack(`"b"`)
+	reference.PushBack(`cde`)
+	reference.PushBack(`"efg"`)
+
+	testEqual(result, reference, t)
+}
