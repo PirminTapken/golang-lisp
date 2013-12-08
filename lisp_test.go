@@ -34,3 +34,12 @@ func TestTokenizerWithABC(t *testing.T) {
 
 	testEqual(result, reference, t)
 }
+
+// Test if tokenizer parses correctly an empty list
+func TestTokenizerWithEmptyList(t *testing.T) {
+	example := "()"
+	result := Tokenize(example)
+	reference := list.New()
+
+	testEqual(result, reference, t)
+}
