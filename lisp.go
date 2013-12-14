@@ -7,22 +7,31 @@ import (
 )
 
 func Tokenize(s string) *list.List {
-	l := new(list.List)
-
 	r := strings.NewReader(s)
 
 	var (
 		sc scanner.Scanner
 		ts string
+		l  *list.List
 	)
 
+	stack := list.New() // Deepness Queue
+	l = list.New()
+	stack.PushBack(l)
 	sc.Init(r)
 	for tok := sc.Scan(); tok != scanner.EOF; tok = sc.Scan() {
 		ts = sc.TokenText()
-		if ts != "(" && ts != ")" {
+		switch ts {
+		case "(":
+			l.PushBack(list.New())
+			l = l.Back().Value.(*list.List)
+			stack.PushBack(l)
+		case ")":
+			stack.Remove(stack.Back())
+			l = stack.Back().Value.(*list.List)
+		default:
 			l.PushBack(ts)
 		}
 	}
-
-	return l
+	return stack.Front().Value.(*list.List).Front().Value.(*list.List)
 }
