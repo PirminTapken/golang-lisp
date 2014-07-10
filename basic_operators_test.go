@@ -5,7 +5,7 @@ import (
 )
 
 func testBasicOperators(t *testing.T) {
-	result := eval("(quote (a b c))")
+	result := Eval("(quote (a b c))")
 	if "(a b c)" != result {
 		t.Fatalf(result)
 	}
