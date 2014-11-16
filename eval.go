@@ -1,7 +1,7 @@
 package lisp
 
 import (
-	"github.com/PirminFix/golang-lisp/interpreter"
+	"github.com/PirminTapken/golang-lisp/interpreter"
 )
 
 func Eval(s string) {

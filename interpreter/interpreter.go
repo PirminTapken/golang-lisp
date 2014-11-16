@@ -2,7 +2,7 @@ package lisp
 
 import (
 	"container/list"
-	"github.com/PirminFix/golang-lisp"
+	"github.com/PirminTapken/golang-lisp"
 )
 
 // Interpreter is a interpreter for lisp
